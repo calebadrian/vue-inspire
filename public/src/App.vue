@@ -1,23 +1,28 @@
 <template>
-  <div id="app">
-    
+  <div id="app" :style="{backgroundImage: 'url(' + imgUrl + ')'}">
+
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'App',
+    computed: {
+      imgUrl() {
+        return this.$store.state.imgUrl
+      }
+    }
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+    height: 100vh;
+    margin: 0;
+  }
+  #app {
+    height: 100%;
+    background-size: cover;
+  }
 </style>
